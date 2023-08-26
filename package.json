@@ -1,0 +1,23 @@
+{
+  "name": "@bjerk/conf",
+  "version": "0.1.0",
+  "repository": "github:klyngeorg/conf",
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@8.6.3",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint --ext .ts ."
+  },
+  "prettier": "@simenandre/prettier",
+  "devDependencies": {
+    "@bjerk/eslint-config": "^4.0.0",
+    "@types/node": "^18.16.3",
+    "eslint": "^8.39.0",
+    "prettier": "^2.8.8",
+    "@simenandre/prettier": "5.0.0"
+  },
+  "engines": {
+    "node": "^18"
+  }
+}
