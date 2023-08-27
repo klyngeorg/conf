@@ -48,8 +48,7 @@ export class IdentityPoolGithubSetup extends pulumi.ComponentResource {
     opts?: pulumi.ComponentResourceOptions,
   ) {
     super('klyngeorg:github:IdentityPoolGithub', name, args, opts);
-    const { repo, owner, serviceAccount } =
-      args;
+    const { repo, owner, serviceAccount } = args;
 
     new gcp.serviceaccount.IAMMember(
       `iam-workload-${name}`,

@@ -2,8 +2,8 @@ name: klyngeorg-eventorg
 runtime: nodejs
 description: Administrative project for Klygeorg
 config:
-  pulumi:disable-default-providers: ["*"]
+  pulumi:disable-default-providers: ['*']
   klyngeorg-eventorg:billingAccount: 01BED3-211EFD-47FF88
-  klyngeorg-eventorg:organizationNumber: "1075359437735"
+  klyngeorg-eventorg:organizationNumber: '1075359437735'
   klyngeorg-eventorg:region: europe-north1
   klyngeorg-eventorg:zone: europe-north1-a

@@ -1,5 +1,5 @@
 config:
-  pulumi:disable-default-providers: ["*"]
+  pulumi:disable-default-providers: ['*']
   klyngeorg-admin:adminProjectId: klyngeorg-admin
   klyngeorg-admin:billingAccount: 01BED3-211EFD-47FF88
-  klyngeorg-admin:organizationNumber: "1075359437735"
+  klyngeorg-admin:organizationNumber: '1075359437735'

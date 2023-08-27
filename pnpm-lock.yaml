@@ -49,6 +49,28 @@ importers:
         specifier: ^5.0.0
         version: 5.0.2
 
+  projects/eventorg:
+    dependencies:
+      '@pulumi/gcp':
+        specifier: ^6.55.0
+        version: 6.55.0
+      '@pulumi/pulumi':
+        specifier: ^3.65.1
+        version: 3.65.1
+      date-fns:
+        specifier: ^2.30.0
+        version: 2.30.0
+      gcl-slack:
+        specifier: ^3.0.0
+        version: 3.0.0
+    devDependencies:
+      '@types/node':
+        specifier: ^18.16.3
+        version: 18.16.3
+      typescript:
+        specifier: ^5.0.0
+        version: 5.0.2
+
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:

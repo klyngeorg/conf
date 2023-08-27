@@ -6,7 +6,7 @@ export const serviceAccount = new gcp.serviceaccount.Account(
   {
     accountId: 'klyngeorg-admin',
     displayName: 'Administrator service account',
-    description: 'Used by CI/CD to deploy infrastructure'
+    description: 'Used by CI/CD to deploy infrastructure',
   },
   { deleteBeforeReplace: true, protect: true, provider },
 );
