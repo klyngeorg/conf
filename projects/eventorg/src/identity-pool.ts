@@ -2,6 +2,7 @@ import * as gcp from '@pulumi/gcp';
 import * as github from '@pulumi/github';
 import * as pulumi from '@pulumi/pulumi';
 import { provider } from './providers/gcp';
+import { apiServices } from './api-services';
 
 const identityPool = new gcp.iam.WorkloadIdentityPool(
   'main-github',
@@ -9,7 +10,7 @@ const identityPool = new gcp.iam.WorkloadIdentityPool(
     disabled: false,
     workloadIdentityPoolId: 'main-github',
   },
-  { provider },
+  { provider, dependsOn: apiServices },
 );
 
 export const identityPoolProvider = new gcp.iam.WorkloadIdentityPoolProvider(
