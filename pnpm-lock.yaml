@@ -54,6 +54,9 @@ importers:
       '@pulumi/gcp':
         specifier: ^6.55.0
         version: 6.55.0
+      '@pulumi/github':
+        specifier: ^5.8.0
+        version: 5.8.0
       '@pulumi/pulumi':
         specifier: ^3.65.1
         version: 3.65.1
