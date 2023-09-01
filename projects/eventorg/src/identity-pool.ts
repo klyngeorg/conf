@@ -1,7 +1,7 @@
 import * as gcp from '@pulumi/gcp';
 import * as github from '@pulumi/github';
 import * as pulumi from '@pulumi/pulumi';
-import { provider } from './providers/legacy-gcp';
+import { provider } from './providers/gcp';
 
 const identityPool = new gcp.iam.WorkloadIdentityPool(
   'main-github',
@@ -57,7 +57,7 @@ export class IdentityPoolGithubSetup extends pulumi.ComponentResource {
         role: 'roles/iam.workloadIdentityUser',
         member: getIdentityPoolMember(owner, args.repo),
       },
-      { parent: this, provider, deleteBeforeReplace: true },
+      { parent: this, deleteBeforeReplace: true },
     );
 
     new gcp.serviceaccount.IAMMember(
@@ -67,7 +67,7 @@ export class IdentityPoolGithubSetup extends pulumi.ComponentResource {
         role: 'roles/iam.serviceAccountTokenCreator',
         member: getIdentityPoolMember(owner, args.repo),
       },
-      { parent: this, provider, deleteBeforeReplace: true },
+      { parent: this, deleteBeforeReplace: true },
     );
 
     new github.ActionsSecret(
