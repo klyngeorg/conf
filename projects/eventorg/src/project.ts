@@ -7,7 +7,7 @@ export const project = new gcp.organizations.Project(
   'eventorg',
   {
     projectId,
-    name: 'eventorg',
+    name: projectId,
     billingAccount,
     orgId: organizationNumber,
   },
