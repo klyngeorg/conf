@@ -3,6 +3,7 @@ import { project } from './project';
 import { provider } from './providers/gcp';
 
 export const services = [
+  'iamcredentials.googleapis.com',
   'servicemanagement.googleapis.com',
   'servicecontrol.googleapis.com',
   'container.googleapis.com',
@@ -23,7 +24,6 @@ export const services = [
   'cloudbuild.googleapis.com',
   'iam.googleapis.com',
   'cloudbilling.googleapis.com',
-  'iamcredentials.googleapis.com',
 ];
 
 export const apiServices = services.map(
