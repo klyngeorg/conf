@@ -2,8 +2,17 @@ import * as gcp from '@pulumi/gcp';
 import { project } from './project';
 import { provider } from './providers/gcp';
 
-export const services = [
+const iamcreds = new gcp.projects.Service(
   'iamcredentials.googleapis.com',
+  {
+    service: 'iamcredentials.googleapis.com',
+    disableOnDestroy: false,
+    project: project.name,
+  },
+  { provider },
+);
+
+export const services = [
   'servicemanagement.googleapis.com',
   'servicecontrol.googleapis.com',
   'container.googleapis.com',
@@ -35,6 +44,6 @@ export const apiServices = services.map(
         disableOnDestroy: false,
         project: project.name,
       },
-      { provider },
+      { provider, dependsOn: iamcreds },
     ),
 );
