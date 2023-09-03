@@ -1,3 +1,4 @@
+import './iam';
 import './project';
 import './api-services';
 import './artifact-registry';

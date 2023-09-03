@@ -1,2 +1,4 @@
 config:
   klyngeorg-eventorg:projectId: klyngeorg-eventorg
+  klyngeorg-eventorg:developers:
+    - group:developers@bjerk.io

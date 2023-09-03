@@ -7,3 +7,4 @@ export const organizationNumber = config.require('organizationNumber');
 export const projectId = config.require('projectId');
 export const region = config.require('region');
 export const zone = config.require('zone');
+export const developers = config.getObject<string[]>('developers') ?? [];
