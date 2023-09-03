@@ -2,6 +2,7 @@ import * as gcp from '@pulumi/gcp';
 import { developers } from './config';
 import { project } from './project';
 import { provider } from './providers/gcp';
+import { serviceAccount } from './service-account';
 
 developers.map(
   member =>
@@ -14,4 +15,14 @@ developers.map(
       },
       { provider },
     ),
+);
+
+new gcp.projects.IAMMember(
+  'cloud-run-access',
+  {
+    member: serviceAccount.email.apply(email => `serviceAccount:${email}`),
+    role: 'roles/run.admin',
+    project: project.projectId,
+  },
+  { provider },
 );
