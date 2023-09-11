@@ -2,10 +2,10 @@ import * as gcp from '@pulumi/gcp';
 import { provider } from './providers/gcp';
 import { apiServices } from './api-services';
 
-export const deploymentServiceAccount = new gcp.serviceaccount.Account(
-  'eventorg',
+export const serviceAccount = new gcp.serviceaccount.Account(
+  'eventorg-worker',
   {
-    accountId: 'eventorg',
+    accountId: 'eventorg-worker',
   },
   { dependsOn: apiServices, provider },
 );

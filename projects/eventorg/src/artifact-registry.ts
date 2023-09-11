@@ -5,7 +5,7 @@ import { project } from './project';
 import { apiServices } from './api-services';
 import { provider as gcpProvider } from './providers/gcp';
 import { provider as githubProvider } from './providers/github';
-import { serviceAccount } from './service-account';
+import { deploymentServiceAccount } from './service-account';
 import { interpolate } from '@pulumi/pulumi';
 
 export const artifactRepository = new gcp.artifactregistry.Repository(
@@ -21,7 +21,7 @@ export const artifactRepository = new gcp.artifactregistry.Repository(
 new gcp.artifactregistry.RepositoryIamMember(
   `eventorg-repo-admin`,
   {
-    member: serviceAccount.email.apply(email => `serviceAccount:${email}`),
+    member: deploymentServiceAccount.email.apply(email => `serviceAccount:${email}`),
     role: 'roles/artifactregistry.repoAdmin',
     repository: artifactRepository.id,
   },
