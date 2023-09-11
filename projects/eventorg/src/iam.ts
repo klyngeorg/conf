@@ -26,3 +26,13 @@ new gcp.projects.IAMMember(
   },
   { provider },
 );
+
+new gcp.serviceaccount.IAMMember(
+  'act-as-access',
+  {
+    member: serviceAccount.email.apply(email => `serviceAccount:${email}`),
+    role: 'roles/iam.serviceAccountUser',
+    serviceAccountId: `${project.id}-compute@developer.gserviceaccount.com`,
+  },
+  { provider },
+);
