@@ -29,7 +29,7 @@ new gcp.projects.IAMMember(
   { provider },
 );
 
-const defaultServiceAccount = gcp.compute.getDefaultServiceAccount({});
+const defaultServiceAccount = gcp.compute.getDefaultServiceAccount({}, { provider });
 
 new gcp.serviceaccount.IAMMember(
   'act-as-access',
@@ -38,7 +38,7 @@ new gcp.serviceaccount.IAMMember(
       email => `serviceAccount:${email}`,
     ),
     role: 'roles/iam.serviceAccountUser',
-    serviceAccountId: defaultServiceAccount.catch(account => account.uniqueId),
+    serviceAccountId: defaultServiceAccount.catch(account => account.id),
   },
   { provider },
 );
