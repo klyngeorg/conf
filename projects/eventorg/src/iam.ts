@@ -3,6 +3,7 @@ import { developers } from './config';
 import { project } from './project';
 import { provider } from './providers/gcp';
 import { serviceAccount } from './service-account';
+import { interpolate } from '@pulumi/pulumi';
 
 developers.map(
   member =>
@@ -32,7 +33,7 @@ new gcp.serviceaccount.IAMMember(
   {
     member: serviceAccount.email.apply(email => `serviceAccount:${email}`),
     role: 'roles/iam.serviceAccountUser',
-    serviceAccountId: `${project.id}-compute@developer.gserviceaccount.com`,
+    serviceAccountId: interpolate`${project.id}-compute@developer.gserviceaccount.com`,
   },
   { provider },
 );
