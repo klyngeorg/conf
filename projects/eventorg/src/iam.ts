@@ -38,7 +38,7 @@ new gcp.serviceaccount.IAMMember(
       email => `serviceAccount:${email}`,
     ),
     role: 'roles/iam.serviceAccountUser',
-    serviceAccountId: defaultServiceAccount.catch(account => account.id),
+    serviceAccountId: defaultServiceAccount.catch(account => account.uniqueId),
   },
   { provider },
 );
