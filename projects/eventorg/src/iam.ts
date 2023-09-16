@@ -7,10 +7,10 @@ import { deploymentServiceAccount } from './service-account';
 developers.map(
   member =>
     new gcp.projects.IAMMember(
-      `${member}-cluster-access`,
+      `${member}-editor-access`,
       {
         member,
-        role: 'roles/run.developer',
+        role: 'roles/editor',
         project: project.projectId,
       },
       { provider },
