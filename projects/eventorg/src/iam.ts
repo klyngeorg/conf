@@ -4,18 +4,26 @@ import { project } from './project';
 import { provider } from './providers/gcp';
 import { deploymentServiceAccount } from './service-account';
 
-developers.map(
-  member =>
-    new gcp.projects.IAMMember(
-      `${member}-editor-access`,
-      {
-        member,
-        role: 'roles/editor',
-        project: project.projectId,
-      },
-      { provider },
-    ),
-);
+developers.map(member => [
+  new gcp.projects.IAMMember(
+    `${member}-editor-access`,
+    {
+      member,
+      role: 'roles/editor',
+      project: project.projectId,
+    },
+    { provider },
+  ),
+  new gcp.projects.IAMMember(
+    `${member}-firebase-access`,
+    {
+      member,
+      role: 'roles/firebase.admin',
+      project: project.projectId,
+    },
+    { provider },
+  ),
+]);
 
 new gcp.projects.IAMMember(
   'cloud-run-access',
